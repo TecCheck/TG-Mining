@@ -68,7 +68,21 @@ function hslToRgb(h, s, l) {
 }
 
 function getClassesSwitches(graphNumber, classes) {
+    var colSize = 3;
     html = "";
+    for (var i = 0; i < classes.length; i++) {
+        var id = `checkbox-${graphNumber}-${i}`
+        html += `<div class="mdl-cell--${colSize}-col class-switch">\n` +
+            `<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="${id}">
+                <input type="checkbox" id="${id}" class="mdl-checkbox__input" checked>
+                <span class="mdl-checkbox__label">${classes[i]}</span>
+            </label>` +
+            "\n</div>"
+    }
+    return html;
+}
 
-    
+function isMobile(){
+    let isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
+    return isMobile;
 }

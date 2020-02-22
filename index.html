@@ -44,7 +44,7 @@
                 <div class="mdl-cell mdl-cell--1-col"></div>
                 <div class="mdl-cell mdl-cell--10-col">
 
-                    <div class="card-wide mdl-card mdl-shadow--2dp border-radius-2dp">
+                    <div class="card-wide mdl-card mdl-shadow--2dp border-round">
                         <div class="mdl-card__title">
                             <h2 class="mdl-card__title-text">TG-Mining</h2>
                         </div>
@@ -58,7 +58,7 @@
 
                     <br>
 
-                    <div class="card-wide mdl-card mdl-shadow--2dp border-radius-2dp">
+                    <div class="card-wide mdl-card mdl-shadow--2dp border-round">
                         <div class="mdl-card__title">
                             <h2 class="mdl-card__title-text">Datenbank öffnen</h2>
                         </div>
@@ -67,7 +67,13 @@
                                 Bitte öffne die Datenbank, um die Diagramme anzuzeigen.
                             </p>
 
-                            <input type="file" id="theFile" />
+                            <label for="theFile"
+                                class="mdl-button mdl-button mdl-js-button mdl-button--primary mdl-js-ripple-effect">
+                                <i class="material-icons margin-4-right">cloud_upload</i>
+                                Durchsuchen
+                            </label>
+                            <input class="hidden" type="file" id="theFile" />
+
                             <!-- For debugging -->
                             <output id="code"></output>
                         </div>
@@ -75,28 +81,33 @@
 
                     <br>
 
-                    <div id="graph1" style="display:none;" class="card-wide mdl-card mdl-shadow--2dp border-radius-2dp">
+                    <div class="card-wide mdl-card mdl-shadow--2dp border-round" id="graph1" style="display:none;">
                         <div class="mdl-card__title">
                             <h2 class="mdl-card__title-text">Anzahl an Vertretungen, Entfall, etc pro Klasse</h2>
                         </div>
                         <div class="mdl-card__supporting-text">
+                            <div class="chart-container">
+                                <canvas id="chart1">
+                                    <p>Chart can't be displayed</p>
+                                </canvas>
+                            </div>
 
                             <div>
                                 <h6>Einstellungen</h6>
                                 <div class="mdl-grid">
-                                    <div class="mdl-cell--4-col">
+                                    <div class="mdl-cell--4-col class-switch">
                                         <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-1-1">
                                             <input type="checkbox" id="switch-1-1" class="mdl-switch__input" checked>
                                             <span class="mdl-switch__label">Vertretungen</span>
                                         </label>
                                     </div>
-                                    <div class="mdl-cell--4-col">
+                                    <div class="mdl-cell--4-col class-switch">
                                         <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-1-2">
                                             <input type="checkbox" id="switch-1-2" class="mdl-switch__input" checked>
                                             <span class="mdl-switch__label">Entfall</span>
                                         </label>
                                     </div>
-                                    <div class="mdl-cell--4-col">
+                                    <div class="mdl-cell--4-col class-switch">
                                         <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-1-3">
                                             <input type="checkbox" id="switch-1-3" class="mdl-switch__input" checked>
                                             <span class="mdl-switch__label">Sonstiges</span>
@@ -105,14 +116,19 @@
                                 </div>
 
                                 <h6>Klassen</h6>
-                                <div id="class-selction1" class="mdl-grid">
-                                    
+                                <div class="mdl-grid" id="class-selection1">
+                                    <div class="mdl-cell--2-col" id="checkbox-template">
+                                        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect"
+                                            for="checkbox-1-4">
+                                            <input class="mdl-checkbox__input" type="checkbox" id="checkbox-1-4"
+                                                checked="">
+                                            <span class="mdl-checkbox__label">6TG10/1
+                                            </span>
+                                        </label>
+                                    </div>
+
                                 </div>
                             </div>
-
-                            <canvas id="chart1">
-                                <p>Chart can't be displayed</p>
-                            </canvas>
                         </div>
                     </div>
                 </div>

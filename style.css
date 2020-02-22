@@ -1,22 +1,42 @@
-.img-round {
-    border-radius: 4px;
+.centered {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
-.centered {
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+.hidden {
+  display: none;
+}
+
+.margin-4-right {
+    margin-right: 4px;
 }
 
 .border-radius-2dp {
-    border-radius: 2px;
+  border-radius: 2px;
 }
 
+.border-round {
+  border-radius: 4px;
+}
+
+.img-round {
+    border-radius: 4px;
+  }
+
 .card-wide.mdl-card {
-    width: auto;
-    height: auto;
-    min-height: 80px;
+  width: auto;
+  height: auto;
+  min-height: 80px;
+}
+
+.chart-container{
+    min-height: 250px;
+}
+
+.class-switch{
+    height: 32px;
 }
