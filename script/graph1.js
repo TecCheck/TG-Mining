@@ -19,6 +19,7 @@ function prepareGraph1() {
 
 function makeGraph1() {
     var json = window.database;
+    var color = Chart.helpers.color;
 
     // Make the Data
     var classes = ["6TG8/1", "6TG8/2", "6TG9/1", "6TG9/2", "6TG10/1", "6TG10/2", "TGM11/1", "TGTM11/2", "TGG11/3", "TGI11/4", "TGTM11/5", "TGG11/6", "TGM12/1", "TGTM12/2", "TGG12/3", "TGI12/4", "TGTM12/5", "TGG12/6", "TGM13/1", "TGTM13/2", "TGG13/3", "TGI13/4", "TGTM13/5", "TGG13/6", "_HUMP", "K2FR2", ""];
@@ -54,7 +55,8 @@ function makeGraph1() {
         datasets[i] = {
             label: "Vertretung",
             data: replacementCounts,
-            backgroundColor: window.chartColors.green,
+            backgroundColor: color(window.chartColors.green).alpha(0.5).rgbString(),
+            borderColor: window.chartColors.green,
             borderWidth: 1
         };
         i++;
@@ -64,7 +66,8 @@ function makeGraph1() {
         datasets[i] = {
             label: "Entfall",
             data: removeCounts,
-            backgroundColor: window.chartColors.red,
+            backgroundColor: color(window.chartColors.red).alpha(0.5).rgbString(),
+            borderColor: window.chartColors.red,
             borderWidth: 1
         };
         i++;
@@ -74,7 +77,8 @@ function makeGraph1() {
         datasets[i] = {
             label: "Sonstiges",
             data: etcCounts,
-            backgroundColor: window.chartColors.yellow,
+            backgroundColor: color(window.chartColors.yellow).alpha(0.5).rgbString(),
+            borderColor: window.chartColors.yellow,
             borderWidth: 1
         };
         i++;
@@ -89,6 +93,7 @@ function makeGraph1() {
         },
         options: {
             responsive: true,
+            maintainAspectRatio: true,
             legend: {
                 display: true,
             },
