@@ -1,0 +1,22 @@
+.img-round {
+    border-radius: 4px;
+}
+
+.centered {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.border-radius-2dp {
+    border-radius: 2px;
+}
+
+.card-wide.mdl-card {
+    width: auto;
+    height: auto;
+    min-height: 80px;
+}

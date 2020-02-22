@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.cyan-orange.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.css" />
+    <link rel="stylesheet" href="style.css" />
+
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js"></script>
+    <script src="script/graph1.js"></script>
+    <script src="script/utils.js"></script>
+
+    <link rel="shortcut icon" href="images/favicon.ico">
+
+    <title>TG-Mining</title>
+</head>
+
+<body class="mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+        <header class="mdl-layout__header mdl-color--primary">
+            <div class="mdl-layout__drawer-button">
+                <a href="">
+                    <img class="img-round centered" src="images/logo.png" width="32" height="32" />
+                </a>
+            </div>
+
+            <div class="mdl-layout__header-row">
+                <span class="mdl-layout-title">TG-Mining</span>
+
+                <div class="mdl-layout-spacer"></div>
+            </div>
+        </header>
+
+        <main class="mdl-layout__content mdl-color--grey-300">
+
+            <div class="mdl-grid">
+                <div class="mdl-cell mdl-cell--1-col"></div>
+                <div class="mdl-cell mdl-cell--10-col">
+
+                    <div class="card-wide mdl-card mdl-shadow--2dp border-radius-2dp">
+                        <div class="mdl-card__title">
+                            <h2 class="mdl-card__title-text">TG-Mining</h2>
+                        </div>
+                        <div class="mdl-card__supporting-text">
+                            Du fragst dich vieleicht, was das hier ist. Das ist relativ einfach zu erklären. Zwei
+                            verrückte Menschen haben seit Anfang des Schuljahres 2019/20 den Vertretungsplan des
+                            Technischen Gymnasiums Ravensburg aufgenommen. Damit haben sie diverse Statistiken
+                            erstellt. Diese siehst du hier.
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <div class="card-wide mdl-card mdl-shadow--2dp border-radius-2dp">
+                        <div class="mdl-card__title">
+                            <h2 class="mdl-card__title-text">Datenbank öffnen</h2>
+                        </div>
+                        <div class="mdl-card__supporting-text">
+                            <p>
+                                Bitte öffne die Datenbank, um die Diagramme anzuzeigen.
+                            </p>
+
+                            <input type="file" id="theFile" />
+                            <!-- For debugging -->
+                            <output id="code"></output>
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <div id="graph1" style="display:none;" class="card-wide mdl-card mdl-shadow--2dp border-radius-2dp">
+                        <div class="mdl-card__title">
+                            <h2 class="mdl-card__title-text">Anzahl an Vertretungen, Entfall, etc pro Klasse</h2>
+                        </div>
+                        <div class="mdl-card__supporting-text">
+
+                            <div>
+                                <h6>Einstellungen</h6>
+                                <div class="mdl-grid">
+                                    <div class="mdl-cell--4-col">
+                                        <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-1-1">
+                                            <input type="checkbox" id="switch-1-1" class="mdl-switch__input" checked>
+                                            <span class="mdl-switch__label">Vertretungen</span>
+                                        </label>
+                                    </div>
+                                    <div class="mdl-cell--4-col">
+                                        <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-1-2">
+                                            <input type="checkbox" id="switch-1-2" class="mdl-switch__input" checked>
+                                            <span class="mdl-switch__label">Entfall</span>
+                                        </label>
+                                    </div>
+                                    <div class="mdl-cell--4-col">
+                                        <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-1-3">
+                                            <input type="checkbox" id="switch-1-3"" class="mdl-switch__input" checked>
+                                            <span class="mdl-switch__label">Sonstiges</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <h6>Klassen</h6>
+                                <div id="class-selction1" class="mdl-grid">
+                                    
+                                </div>
+                            </div>
+
+                            <canvas id="chart1">
+                                <p>Chart can't be displayed</p>
+                            </canvas>
+                            <script src="script/script.js"></script>
+                        </div>
+                    </div>
+                </div>
+                <div class="mdl-cell mdl-cell--1-col"></div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>
