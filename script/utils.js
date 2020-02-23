@@ -82,7 +82,14 @@ function getClassesSwitches(graphNumber, classes) {
     return html;
 }
 
-function isMobile(){
+function isMobile() {
     let isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
     return isMobile;
+}
+
+function getFormatedDate(date) {
+    var day = String(date.getDate());
+    var month = String(date.getMonth() + 1);
+    var year = String(date.getFullYear());
+    return `${day.padStart(2, '0')}.${month.padStart(2, '0')} ${year.padStart(4, '0')}`;
 }

@@ -15,6 +15,7 @@
     <script defer src="script/script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js"></script>
     <script src="script/graph1.js"></script>
+    <script src="script/graph2.js"></script>
     <script src="script/utils.js"></script>
 
     <link rel="shortcut icon" href="images/favicon.ico">
@@ -33,7 +34,6 @@
 
             <div class="mdl-layout__header-row">
                 <span class="mdl-layout-title">TG-Mining</span>
-
                 <div class="mdl-layout-spacer"></div>
             </div>
         </header>
@@ -81,9 +81,26 @@
 
                     <br>
 
+                    <div class="card-wide mdl-card mdl-shadow--2dp border-round" id="graph2" style="display:none;">
+                        <div class="mdl-card__title">
+                            <h2 class="mdl-card__title-text">Gesamtzahl der Vertretungen, Entfall, usw.</h2>
+                        </div>
+
+                        <div class="mdl-card__supporting-text">
+                            <div class="chart-container pie-chart">
+                                <canvas id="chart2">
+                                    <p>Chart can't be displayed</p>
+                                </canvas>
+                                <h6 class="total-replacements" id="total-replacements"></h6>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br>
+
                     <div class="card-wide mdl-card mdl-shadow--2dp border-round" id="graph1" style="display:none;">
                         <div class="mdl-card__title">
-                            <h2 class="mdl-card__title-text">Anzahl an Vertretungen, Entfall, etc pro Klasse</h2>
+                            <h2 class="mdl-card__title-text">Anzahl der Vertretungen, Entfall, etc pro Klasse</h2>
                         </div>
                         <div class="mdl-card__supporting-text">
                             <div class="chart-container">
@@ -122,11 +139,11 @@
                                             for="checkbox-1-4">
                                             <input class="mdl-checkbox__input" type="checkbox" id="checkbox-1-4"
                                                 checked="">
-                                            <span class="mdl-checkbox__label">6TG10/1
+                                            <span class="mdl-checkbox__label">
+                                                6TG10/1
                                             </span>
                                         </label>
                                     </div>
-
                                 </div>
                             </div>
                         </div>

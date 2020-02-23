@@ -2,10 +2,21 @@
 
 function makeGraphs() {
     makeGraph1();
+    makeGraph2();
 }
 
 function showGraphLayouts() {
     prepareGraph1();
+    prepareGraph2();
+}
+
+function showTime() {
+    var json = window.database;
+    var time = document.getElementById("code");
+    var start = new Date(json[0].date * 1000);
+    var end = new Date(json[json.length - 1].date * 1000);
+
+    time.innerHTML = `Zeitraum: ${getFormatedDate(start)} bis ${getFormatedDate(end)}`
 }
 
 function fileSelect(event) {
@@ -13,6 +24,7 @@ function fileSelect(event) {
     reader.onload = function () {
         var text = reader.result;
         window.database = JSON.parse(text);
+        showTime();
         showGraphLayouts();
         makeGraphs();
     };
