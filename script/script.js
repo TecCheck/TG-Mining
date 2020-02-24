@@ -31,6 +31,24 @@ function fileSelect(event) {
     reader.readAsText(event.target.files[0]);
 }
 
+function tryReadUrl() {
+    var reader = new FileReader();
+    reader.onload = function () {
+        var text = reader.result;
+        window.database = JSON.parse(text);
+        showTime();
+        showGraphLayouts();
+        makeGraphs();
+    };
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "/tgm.json");
+    xhr.responseType = "blob";
+    xhr.onload = function () { reader.readAsText(xhr.response); }
+    xhr.send();
+}
+
 document.addEventListener("DOMContentLoaded", function () {
     document.getElementById('theFile').addEventListener('change', fileSelect, false);
+    tryReadUrl();
 });

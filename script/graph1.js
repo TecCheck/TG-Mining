@@ -5,6 +5,8 @@ var replacementCounts = [];
 var removeCounts = [];
 var etcCounts = [];
 
+var configs = [];
+
 function prepareGraph1() {
     var graphLayout = document.getElementById("graph1");
     graphLayout.style.removeProperty("display");
@@ -19,6 +21,36 @@ function prepareGraph1() {
 
     document.getElementById("switch-1-3").addEventListener('change', function () {
         updateGraph1();
+    });
+
+    configs[0] = true;
+    configs[1] = true;
+
+    var expander1 = document.getElementById("expander-1-1");
+    expander1.addEventListener('click', function () {
+        if (configs[0]) {
+            document.getElementById("settings-1").style.removeProperty("display");
+            document.getElementById("expander-1-1-icon").innerHTML = "arrow_drop_down";
+        }
+        else {
+            document.getElementById("settings-1").style.setProperty("display", "none");
+            document.getElementById("expander-1-1-icon").innerHTML = "arrow_drop_up";
+        }
+
+        configs[0] = !configs[0];
+    });
+
+    var expander2 = document.getElementById("expander-1-2");
+    expander2.addEventListener('click', function () {
+        if (configs[1]) {
+            document.getElementById("class-selection1").style.removeProperty("display");
+            document.getElementById("expander-1-2-icon").innerHTML = "arrow_drop_down";
+        }
+        else {
+            document.getElementById("class-selection1").style.setProperty("display", "none");
+            document.getElementById("expander-1-2-icon").innerHTML = "arrow_drop_up";
+        }
+        configs[1] = !configs[1];
     });
 }
 
@@ -167,4 +199,5 @@ function showClassSelection(classes) {
             updateGraph1();
         });
     }
+    document.getElementById("class-selection1").style.setProperty("display", "none");
 }

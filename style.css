@@ -48,5 +48,27 @@
 }
 
 .pie-chart {
-  max-width: 600px;
+  max-width: 700px;
+}
+
+@media only screen and (max-width: 600px){
+  .pie-chart {
+    max-height: 600px;
+  }
+}
+
+.expander-icon {
+  height: 24px;
+  margin: 0px;
+}
+
+.expander-text {
+  height: min-content;
+  margin: 0px;
+  padding: 0px;
+  padding-top: 4px;
+}
+
+.main-layout{
+  margin: 16px;
 }

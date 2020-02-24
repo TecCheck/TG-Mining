@@ -68,7 +68,7 @@ function hslToRgb(h, s, l) {
 }
 
 function getClassesSwitches(graphNumber, classes) {
-    var colSize = 3;
+    var colSize = 2;
     html = "";
     for (var i = 0; i < classes.length; i++) {
         var id = `checkbox-${graphNumber}-${i}`

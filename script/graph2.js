@@ -25,14 +25,13 @@ function makeGraph2() {
         }
     }
 
-    document.getElementById('total-replacements').innerHTML = `${total} Einträge`
-
     var sort = selectionSort(types, counts);
     types = sort[0];
     counts = sort[1];
 
     var config = {
         type: 'doughnut',
+        plugins: [],
         data: {
             datasets: [{
                 data: counts,
@@ -65,9 +64,20 @@ function makeGraph2() {
         },
         options: {
             responsive: true,
+            maintainAspectRatio: !isMobile(),
             legend: {
                 position: isMobile() ? 'bottom' : 'right',
             },
+            plugins: {
+                doughnutlabel: {
+                    labels: [{
+                        text: `${total} Einträge`,
+                        font: {
+                            size: '18'
+                        }
+                    }]
+                }
+            }
         }
     };
 
@@ -79,26 +89,26 @@ function selectionSort(types, counts) {
     // This is a modified version of a function that was written by Ankur Agarwal
     // (https://codingmiles.com/sorting-algorithms-insertion-sort-using-javascript-2/)
     var length = counts.length;
-	for (var i = 0; i < length - 1; i++) {
-		//Number of passes
-		var min = i; //min holds the current minimum number position for each pass; i holds the Initial min number
-		for (var j = i + 1; j < length; j++) { //Note that j = i + 1 as we only need to go through unsorted array
-			if (counts[j] > counts[min]) { //Compare the numbers
-				min = j; //Change the current min number position if a smaller num is found
-			}
-		}
-		if (min != i) {
-			//After each pass, if the current min num != initial min num, exchange the position.
-			//Swap the numbers 
-			var tmp = counts[i];
-			counts[i] = counts[min];
+    for (var i = 0; i < length - 1; i++) {
+        //Number of passes
+        var min = i; //min holds the current minimum number position for each pass; i holds the Initial min number
+        for (var j = i + 1; j < length; j++) { //Note that j = i + 1 as we only need to go through unsorted array
+            if (counts[j] > counts[min]) { //Compare the numbers
+                min = j; //Change the current min number position if a smaller num is found
+            }
+        }
+        if (min != i) {
+            //After each pass, if the current min num != initial min num, exchange the position.
+            //Swap the numbers 
+            var tmp = counts[i];
+            counts[i] = counts[min];
             counts[min] = tmp;
-            
+
             var tmp1 = types[i];
             types[i] = types[min];
             types[min] = tmp1;
-		}
+        }
     }
-    
-    return[types, counts];
+
+    return [types, counts];
 }
