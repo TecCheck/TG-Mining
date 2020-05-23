@@ -56,7 +56,7 @@ function updateDarkMode(darkNightSwitch) {
             link.id = cssId;
             link.rel = 'stylesheet';
             link.type = 'text/css';
-            link.href = document.location.origin + "/css/theme-dark.css";
+            link.href = document.location.href + "/css/theme-dark.css";
             link.media = 'all';
             head.appendChild(link);
         }
@@ -108,12 +108,7 @@ document.addEventListener("DOMContentLoaded", function () {
     setup();
     includeHTML();
     setTimeout(function () {
-        try {
-            tryReadUrl();
-        }
-        catch (e) {
-            console.log(e);
-        }
+        tryReadUrl();
     }, 1000);
 
     document.getElementById('theFile').addEventListener('change', fileSelect, false);
