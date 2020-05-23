@@ -108,7 +108,12 @@ document.addEventListener("DOMContentLoaded", function () {
     setup();
     includeHTML();
     setTimeout(function () {
-        tryReadUrl();
+        try {
+            tryReadUrl();
+        }
+        catch (e) {
+            console.log(e);
+        }
     }, 1000);
 
     document.getElementById('theFile').addEventListener('change', fileSelect, false);
