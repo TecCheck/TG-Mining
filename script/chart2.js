@@ -1,15 +1,19 @@
-function prepareGraph2() {
-    var graphLayout = document.getElementById("graph2");
-    graphLayout.style.removeProperty("display");
-}
+var chart2 = {
+    chart: null
+};
 
-function makeGraph2() {
+function setupChart2() {
+    if (chart2.chart != null)
+        chart2.chart.destroy();
+
+    var graphLayout = document.getElementById("chart2-card");
+    graphLayout.style.removeProperty("display");
+
     var json = window.database;
     var color = Chart.helpers.color;
 
     var types = [];
     var counts = [];
-
     var total = 0;
 
     for (var d = 0; d < json.length; d++) {
@@ -25,7 +29,7 @@ function makeGraph2() {
         }
     }
 
-    var sort = selectionSort(types, counts);
+    var sort = selectionSort(types, counts, true);
     types = sort[0];
     counts = sort[1];
 
@@ -49,13 +53,7 @@ function makeGraph2() {
                     window.chartColors.yellow,
                     window.chartColors.green,
                     window.chartColors.blue,
-                    window.chartColors.purple,
-                    window.chartColors.grey,
-                    window.chartColors.grey,
-                    window.chartColors.grey,
-                    window.chartColors.grey,
-                    window.chartColors.grey,
-                    window.chartColors.grey
+                    window.chartColors.purple
                 ],
                 label: 'Dataset 1',
                 borderWidth: 2,
@@ -71,9 +69,9 @@ function makeGraph2() {
             plugins: {
                 doughnutlabel: {
                     labels: [{
-                        text: `${total} Einträge`,
+                        text: `${total}`,
                         font: {
-                            size: '18'
+                            size: '36'
                         }
                     }]
                 }
@@ -81,34 +79,11 @@ function makeGraph2() {
         }
     };
 
-    var ctx = document.getElementById('chart2').getContext('2d');
-    window.myPie = new Chart(ctx, config);
-}
-
-function selectionSort(types, counts) {
-    // This is a modified version of a function that was written by Ankur Agarwal
-    // (https://codingmiles.com/sorting-algorithms-insertion-sort-using-javascript-2/)
-    var length = counts.length;
-    for (var i = 0; i < length - 1; i++) {
-        //Number of passes
-        var min = i; //min holds the current minimum number position for each pass; i holds the Initial min number
-        for (var j = i + 1; j < length; j++) { //Note that j = i + 1 as we only need to go through unsorted array
-            if (counts[j] > counts[min]) { //Compare the numbers
-                min = j; //Change the current min number position if a smaller num is found
-            }
-        }
-        if (min != i) {
-            //After each pass, if the current min num != initial min num, exchange the position.
-            //Swap the numbers 
-            var tmp = counts[i];
-            counts[i] = counts[min];
-            counts[min] = tmp;
-
-            var tmp1 = types[i];
-            types[i] = types[min];
-            types[min] = tmp1;
-        }
+    while (config.data.datasets[0].borderColor.length < config.data.datasets[0].data.length) {
+        var length = config.data.datasets[0].borderColor.length;
+        config.data.datasets[0].borderColor[length] = window.chartColors.grey;
     }
 
-    return [types, counts];
+    var ctx = document.getElementById('chart2').getContext('2d');
+    chart2.chart = new Chart(ctx, config);
 }

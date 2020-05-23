@@ -1,0 +1,48 @@
+<div id="chart1-card" class="mdc-card" style="display: none;">
+    <div class="card-description">
+        <h2 class="card-title mdc-typography mdc-typography--headline5">
+            Anzahl der Vertretungen und Entfall pro Klasse
+        </h2>
+
+        <div class="card-secondary mdc-typography mdc-typography--body2">
+            <div class="chart-container">
+                <canvas id="chart1">
+                    <p>Chart can't be displayed</p>
+                </canvas>
+            </div>
+
+            <h2 class="card-title mdc-typography mdc-typography--headline6">
+                Klassen
+            </h2>
+
+            <div class="mdc-chip-set" role="grid" id="chart1-chip-set">
+                <div class="mdc-chip mdc-menu-surface--anchor" role="row" id="chart1-class-add-chip">
+                    <div class="mdc-chip__ripple"></div>
+                    <i class="feather-icon mdc-chip__icon mdc-chip__icon--leading" data-feather="plus"></i>
+                    <span role="gridcell">
+                        <span role="button" tabindex="0" class="mdc-chip__primary-action">
+                            <span class="mdc-chip__text">Hinzufügen</span>
+                        </span>
+                    </span>
+
+                    <div class="mdc-menu mdc-menu-surface" id="chart1-class-add-menu">
+                        <ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical" tabindex="-1">
+                            <li class="mdc-list-item" role="menuitem" id="chart1-base-menu-item" style="display: none;">
+                                <span class="mdc-list-item__text">Text</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mdc-chip" role="row" id="chart1-base-chip" style="display: none;">
+                    <span role="gridcell">
+                        <span role="button" class="mdc-chip__primary-action">
+                            <i class="feather-icon mdc-chip__icon mdc-chip__icon--leading" data-feather="x"></i>
+                        </span>
+                    </span>
+                    <span class="mdc-chip__text">Text</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

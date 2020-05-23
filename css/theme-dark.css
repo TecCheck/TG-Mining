@@ -1,0 +1,16 @@
+:root {
+  --mdc-theme-background: #121212;
+  --mdc-theme-surface: #222;
+  --mdc-theme-error: #b00020;
+  --mdc-theme-on-primary: #000;
+  --mdc-theme-on-secondary: #fff;
+  --mdc-theme-on-surface: #fff;
+  --mdc-theme-on-error: #fff;
+  --mdc-theme-text-primary-on-background: rgba(255, 255, 255, 0.87);
+  --mdc-theme-text-secondary-on-background: rgba(255, 255, 255, 0.54);
+  --mdc-theme-text-hint-on-background: rgba(255, 255, 255, 0.38);
+  --mdc-theme-text-disabled-on-background: rgba(255, 255, 255, 0.38);
+  --mdc-theme-text-icon-on-background: rgba(255, 255, 255, 0.38);
+
+  --mdc-card-border-color: #0f0f0f;
+}

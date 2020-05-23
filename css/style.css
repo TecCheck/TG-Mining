@@ -1,0 +1,81 @@
+body {
+  margin: 0px;
+}
+
+a {
+  color: var(--mdc-theme-secondary);
+}
+
+.mdc-card {
+  border-radius: 12px;
+  border-color: var(--mdc-card-border-color);
+  margin: 16px;
+}
+
+.mdc-typography {
+  font-family: Rubik, Roboto, sans-serif;
+}
+
+.mdc-top-app-bar__title {
+  font-family: Rubik, Roboto, sans-serif;
+}
+
+.mdc-typography--headline6 {
+  font-size: 1.3125rem;
+  line-height: 2rem;
+  font-weight: 400;
+  letter-spacing: normal;
+  text-decoration: inherit;
+  text-transform: inherit;
+}
+
+.chart-container {
+  min-height: 250px;
+}
+
+.pie-chart {
+  max-width: 700px;
+}
+
+@media only screen and (max-width: 600px){
+  .pie-chart {
+    max-height: 600px;
+  }
+}
+
+.on-primary {
+  color: var(--mdc-theme-text-primary-on-background);
+}
+
+.card-title {
+  color: var(--mdc-theme-text-primary-on-background, rgba(0, 0, 0, 0.54));
+  margin: 0px;
+  margin-bottom: 16px;
+}
+
+.card-description {
+  margin: 24px;
+}
+
+.card-secondary {
+  color: var(--mdc-theme-text-secondary-on-background, rgba(0, 0, 0, 0.54));
+}
+
+.feather-icon {
+  stroke: var(--mdc-theme-on-primary, rgba(0, 0, 0, 0.54));
+}
+
+.feather-icon-button__icon {
+  fill: none;
+  stroke: currentColor;
+
+  margin-left: -4px;
+  margin-right: 8px;
+
+  width: 18px;
+  height: 18px;
+}
+
+.hidden {
+  display: none;
+}
