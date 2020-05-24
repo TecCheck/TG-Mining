@@ -2,31 +2,10 @@ body {
   margin: 0px;
 }
 
-a {
-  color: var(--mdc-theme-secondary);
-}
-
 .mdc-card {
   border-radius: 12px;
   border-color: var(--mdc-card-border-color);
   margin: 16px;
-}
-
-.mdc-typography {
-  font-family: Rubik, Roboto, sans-serif;
-}
-
-.mdc-top-app-bar__title {
-  font-family: Rubik, Roboto, sans-serif;
-}
-
-.mdc-typography--headline6 {
-  font-size: 1.3125rem;
-  line-height: 2rem;
-  font-weight: 400;
-  letter-spacing: normal;
-  text-decoration: inherit;
-  text-transform: inherit;
 }
 
 .chart-container {
