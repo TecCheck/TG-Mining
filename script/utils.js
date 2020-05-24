@@ -43,6 +43,40 @@ function sortClasses(classes) {
     return ret[0];
 }
 
+function getSimpleSubjectName(subjectID) {
+    var replace = "[0-9]"
+    return subjectID.replace(new RegExp(replace), "");
+}
+
+function getSubject(subjectID) {
+    var subject = subjectID.toLowerCase().replace("/","_");
+
+    var subjects = {
+        d: "Deutsch",
+        e: "Englisch",
+        m: "Mathe",
+        s: "Sport",
+        bk: "Bildende Kunst",
+        ch: "Chemie",
+        ct: "Computer Technik",
+        gs: "Global Studies",
+        it: "Informatik",
+        ph: "Physik",
+        te: "Technik",
+        eth: "Ethik",
+        evr: "Evangelische Religion",
+        f_a: "Französisch A",
+        f_b: "Französisch B",
+        ggk: "Geschichte",
+        gmt: "Gestaltungs- und Medientechnik",
+        bio: "Biologie",
+        itü: "Informatik Übungen",
+        ait: "Angewante Informatik",
+        rel: "Katholische Religion",
+    }
+
+    return subjects[subject] || subjectID;
+}
 
 function selectionSort(array, identifiers, inverse = false) {
     var length = array.length;
@@ -80,4 +114,14 @@ function getParentNode(element, parentNodeName, maxIterations = 5) {
         node = node.parentNode;
     }
     return null;
+}
+
+function createLayout(layoutID, title) {
+    var baseChart = document.getElementById("base-chart-card");
+    var graphLayout = baseChart.cloneNode(true);
+    graphLayout.setAttribute("id", `chart${layoutID}-card`);
+    graphLayout.style.removeProperty("display");
+    graphLayout.getElementsByClassName("card-title")[0].innerText = title;
+    graphLayout.getElementsByTagName("canvas")[0].setAttribute("id", `chart${layoutID}`);
+    document.getElementsByClassName("mdc-top-app-bar--fixed-adjust")[0].appendChild(graphLayout);
 }

@@ -95,6 +95,7 @@ function setupCharts(event) {
     setupChart1();
     setupChart2();
     setupChart3();
+    setupChart4();
     feather.replace()
 }
 
