@@ -34,10 +34,6 @@ function setupChart3() {
                 }],
                 yAxes: [{
                     stacked: true,
-                    scaleLabel: {
-                        display: true,
-                        labelString: 'value'
-                    }
                 }]
             },
         }
