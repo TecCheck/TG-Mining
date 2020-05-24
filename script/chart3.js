@@ -9,8 +9,8 @@ var chart3 = {
 function setupChart3() {
     if (chart3.chart != null)
         chart3.chart.destroy();
-
-    createLayout(3, "Einträge pro Tag");
+    else
+        createLayout(3, "Einträge pro Tag");
 
     var config = {
         type: 'bar',
@@ -29,7 +29,7 @@ function setupChart3() {
                     time: {
                         parser: 'll',
                         tooltipFormat: 'dddd ll',
-                        unit: 'week'
+                        unit: 'day'
                     }
                 }],
                 yAxes: [{

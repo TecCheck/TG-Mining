@@ -30,6 +30,7 @@
     <script src="script/chart2.js"></script>
     <script src="script/chart3.js"></script>
     <script src="script/chart4.js"></script>
+    <script src="script/chart5.js"></script>
     <script src="script/utils.js"></script>
 </head>
 
@@ -89,9 +90,6 @@
                     </label>
 
                     <input class="hidden" type="file" id="theFile" />
-
-                    <!-- For debugging -->
-                    <output id="code" style="margin-left: 16px;"></output>
                 </div>
             </div>
         </div>
@@ -109,6 +107,20 @@
                         </canvas>
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <div id="time-card" class="mdc-card" style="display: none;">
+            <div class="card-description">
+                <h2 class="card-title mdc-typography mdc-typography--headline5">
+                    Zeitraum
+                </h2>
+
+                <div class="card-secondary mdc-typography mdc-typography--body2" id="time-start"></div>
+                <div class="card-secondary mdc-typography mdc-typography--body2" id="time-end"></div>
+                <br>
+                <div class="card-secondary mdc-typography mdc-typography--body2" id="time-lenght"></div>
+                <div class="card-secondary mdc-typography mdc-typography--body2" id="time-school"></div>
             </div>
         </div>
 

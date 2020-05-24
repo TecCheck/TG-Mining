@@ -57,6 +57,7 @@ function setupChart2() {
                 ],
                 label: 'Dataset 1',
                 borderWidth: 2,
+                borderAlign: "inner"
             }],
             labels: types
         },

@@ -9,8 +9,8 @@ var chart4 = {
 function setupChart4() {
     if (chart4.chart != null)
         chart4.chart.destroy();
-
-    createLayout(4, "Einträge pro Fach");
+    else
+        createLayout(4, "Einträge pro Fach");
 
     var config = {
         type: 'bar',

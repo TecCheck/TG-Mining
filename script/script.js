@@ -96,16 +96,21 @@ function setupCharts(event) {
     setupChart2();
     setupChart3();
     setupChart4();
+    setupChart5();
     feather.replace()
 }
 
 function showTime() {
     var json = window.database;
-    var time = document.getElementById("code");
-    var start = new Date(json[0].date * 1000);
-    var end = new Date(json[json.length - 1].date * 1000);
+    var start = moment(json[0].date * 1000);
+    var end = moment(json[json.length - 1].date * 1000);
 
-    time.innerHTML = `Zeitraum: ${getFormatedDate(start)} bis ${getFormatedDate(end)}`
+    document.getElementById("time-card").style.removeProperty("display");
+
+    document.getElementById("time-start").innerHTML = `Von: ${start.format("dddd, LL")}`;
+    document.getElementById("time-end").innerHTML = `Bis: ${end.format("dddd, LL")}`;
+    document.getElementById("time-lenght").innerHTML = `Das sind ${end.diff(start, 'months')} Monate, ${end.diff(start, 'weeks')} Wochen oder ${end.diff(start, 'days')} Tage.`;
+    document.getElementById("time-school").innerHTML = `Davon sind ${json.length} Tage in der Datenbank und ${end.diff(start, 'days') - json.length} Tage nicht.`;
 }
 
 document.addEventListener("DOMContentLoaded", function () {
