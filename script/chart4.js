@@ -98,6 +98,11 @@ function getChart4Data() {
         }
     }
 
+    for(var i = 0; i < labels.length; i++){
+        if(labels[i] == "")
+        labels[i] = "<leer>"
+    }
+
     // Creating data
     var borderWidth = chart4.options.borderWidth;
     var alpha = chart4.options.alpha;

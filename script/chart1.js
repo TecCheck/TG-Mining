@@ -29,6 +29,12 @@ function setupChart1() {
             }
         }
     }
+
+    for(var i = 0; i < chart1.classes.length; i++){
+        if(chart1.classes[i] == "")
+        chart1.classes[i] = "<leer>"
+    }
+
     chart1.classes = sortClasses(chart1.classes);
     chart1.selectedClasses = new Array(chart1.classes.length).fill(true);
 

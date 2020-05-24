@@ -76,6 +76,18 @@ function setupChart2() {
                         }
                     }]
                 }
+            },
+            tooltips: {
+                callbacks: {
+                    label: function (tooltipItem, data) {
+                        var num = data.datasets[0].data[tooltipItem.index];
+                        var title = data.labels[tooltipItem.index];
+                        var perc = Math.round(num / total * 100);
+                        console.log(tooltipItem);
+                        console.log(data);
+                        return `${title}: ${num} (${perc}%)`;
+                    }
+                }
             }
         }
     };
