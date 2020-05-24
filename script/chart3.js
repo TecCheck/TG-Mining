@@ -1,9 +1,8 @@
 var chart3 = {
     chart: null,
     options: {
-        steppedLine: false,
-        fill: false,
-        alpha: 1
+        alpha: 0.5,
+        borderWidth: 2
     }
 };
 
@@ -11,8 +10,7 @@ function setupChart3() {
     if (chart3.chart != null)
         chart3.chart.destroy();
 
-    var graphLayout = document.getElementById("chart3-card");
-    graphLayout.style.removeProperty("display");
+    createLayout(3, "Einträge pro Tag");
 
     var config = {
         type: 'bar',
@@ -81,21 +79,8 @@ function getChart3Data() {
 
     // Creating data
 
-    var borderWidth = 2;
-    var steppedLine = chart3.options.steppedLine; //"middle";
-    var fill = chart3.options.fill;
+    var borderWidth = chart3.options.borderWidth;
     var alpha = chart3.options.alpha;
-
-    var total = {
-        label: "Gesamt",
-        data: totalCounts,
-        backgroundColor: color(window.chartColors.purple).alpha(alpha).rgbString(),
-        borderColor: window.chartColors.purple,
-        borderWidth: borderWidth,
-        steppedLine: steppedLine,
-        fill: fill,
-        hidden: true
-    };
 
     var data = {
         labels: labels,
@@ -105,27 +90,22 @@ function getChart3Data() {
                 data: replacementCounts,
                 backgroundColor: color(window.chartColors.green).alpha(alpha).rgbString(),
                 borderColor: window.chartColors.green,
-                borderWidth: borderWidth,
-                steppedLine: steppedLine,
-                fill: fill
+                borderWidth: borderWidth
+
             },
             {
                 label: "Entfall",
                 data: removeCounts,
                 backgroundColor: color(window.chartColors.red).alpha(alpha).rgbString(),
                 borderColor: window.chartColors.red,
-                borderWidth: borderWidth,
-                steppedLine: steppedLine,
-                fill: fill
+                borderWidth: borderWidth
             },
             {
                 label: "Sonstiges",
                 data: etcCounts,
                 backgroundColor: color(window.chartColors.yellow).alpha(alpha).rgbString(),
                 borderColor: window.chartColors.yellow,
-                borderWidth: borderWidth,
-                steppedLine: steppedLine,
-                fill: fill
+                borderWidth: borderWidth
             }
         ]
     }

@@ -67,8 +67,6 @@ function getChart1Data() {
         }
     }
 
-    console.log(classes);
-
     var replacementCounts = new Array(classes.length).fill(0);
     var removeCounts = new Array(classes.length).fill(0);
     var etcCounts = new Array(classes.length).fill(0);
