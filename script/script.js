@@ -14,6 +14,9 @@ function setup() {
     darkNightSwitch.on = window.matchMedia("(prefers-color-scheme: dark)").matches;
     updateDarkMode(darkNightSwitch);
 
+    // Setting locale for momentjs
+    moment.locale("de");
+
     Chart.defaults.global.defaultFontFamily = "\'Rubik\', \'Roboto\'," + Chart.defaults.global.defaultFontFamily;
 }
 
@@ -91,6 +94,7 @@ function setupCharts(event) {
 
     setupChart1();
     setupChart2();
+    setupChart3();
     feather.replace()
 }
 
@@ -104,9 +108,9 @@ function showTime() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    feather.replace()
-    setup();
     includeHTML();
+    setup();
+    feather.replace()
     setTimeout(function () {
         tryReadUrl();
     }, 1000);

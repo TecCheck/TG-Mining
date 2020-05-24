@@ -37,7 +37,7 @@ function setupChart1() {
     var ctx = document.getElementById('chart1').getContext('2d');
     chart1.chart = new Chart(ctx, {
         type: 'bar',
-        data: getData(),
+        data: getChart1Data(),
         options: {
             responsive: true,
             maintainAspectRatio: !isMobile(),
@@ -50,11 +50,11 @@ function setupChart1() {
 }
 
 function updateGraph1() {
-    chart1.chart.data = getData();
+    chart1.chart.data = getChart1Data();
     chart1.chart.update();
 }
 
-function getData() {
+function getChart1Data() {
     var color = Chart.helpers.color;
     var json = window.database;
 
