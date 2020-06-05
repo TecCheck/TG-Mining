@@ -64,8 +64,12 @@ function setupChart2() {
         options: {
             responsive: true,
             maintainAspectRatio: !isMobile(),
+            title: {
+                display: true,
+                text: 'Erweitert'
+            },
             legend: {
-                position: isMobile() ? 'bottom' : 'right',
+                position: isMobile() ? 'bottom' : 'left',
             },
             plugins: {
                 doughnutlabel: {
@@ -99,4 +103,74 @@ function setupChart2() {
 
     var ctx = document.getElementById('chart2').getContext('2d');
     chart2.chart = new Chart(ctx, config);
+
+    var simpleCounts = [0, 0, 0];
+    for (var i = 0; i < counts.length; i++) {
+        if (isTypeRemove(types[i]))
+            simpleCounts[0] += counts[i];
+        else if (isTypeReplace(types[i]))
+            simpleCounts[1] += counts[i];
+        else
+            simpleCounts[2] += counts[i];
+    }
+
+    var configSimple = {
+        type: 'doughnut',
+        plugins: [],
+        data: {
+            datasets: [{
+                data: simpleCounts,
+                backgroundColor: [
+                    color(window.chartColors.red).alpha(0.5).rgbString(),
+                    color(window.chartColors.green).alpha(0.5).rgbString(),
+                    color(window.chartColors.yellow).alpha(0.5).rgbString(),
+                ],
+                borderColor: [
+                    window.chartColors.red,
+                    window.chartColors.green,
+                    window.chartColors.yellow,
+                ],
+                label: 'Dataset 1',
+                borderWidth: 2,
+                borderAlign: "inner"
+            }],
+            labels: ["Entfall", "Vertretung", "Sonstiges"]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: !isMobile(),
+            title: {
+                display: true,
+                text: 'Einfach'
+            },
+            legend: {
+                position: isMobile() ? 'bottom' : 'right',
+            },
+            plugins: {
+                doughnutlabel: {
+                    labels: [{
+                        text: `${total}`,
+                        font: {
+                            size: '36'
+                        }
+                    }]
+                }
+            },
+            tooltips: {
+                callbacks: {
+                    label: function (tooltipItem, data) {
+                        var num = data.datasets[0].data[tooltipItem.index];
+                        var title = data.labels[tooltipItem.index];
+                        var perc = Math.round(num / total * 100);
+                        console.log(tooltipItem);
+                        console.log(data);
+                        return `${title}: ${num} (${perc}%)`;
+                    }
+                }
+            }
+        }
+    };
+
+    var ctxSimple = document.getElementById('chart2-simple').getContext('2d');
+    chart2.chartSimple = new Chart(ctxSimple, configSimple);
 }

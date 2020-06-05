@@ -99,13 +99,6 @@ function getChart5Data() {
         d++;
     }
 
-
-    console.log("Weeks | Days | ETC | Remove | Replace | Total | Label")
-    console.log("----- | ---- | --- | ------ | ------- | ----- | -----")
-    for (var i = 0; i < weeks.length; i++) {
-        console.log(`${weeks[i]} | ${days[i]} | ${etcCounts[i]} | ${removeCounts[i]} | ${replacementCounts[i]} | ${totalCounts[i]} | ${labels[i]} `)
-    }
-
     // Creating data
     var borderWidth = chart5.options.borderWidth;
     var alpha = chart5.options.alpha;

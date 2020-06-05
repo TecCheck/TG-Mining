@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+
+<div id="custom-chart-card" class="mdc-card" style="display: none;">
+    <div class="card-description">
+        <h2 class="card-title mdc-typography mdc-typography--headline5">
+            Eigenes Diagram
+        </h2>
+
+        <div class="card-secondary mdc-typography mdc-typography--body2">
+            <div class="chart-container">
+                <canvas id="custom-chart">
+                    <p>Chart can't be displayed</p>
+                </canvas>
+            </div>
+
+            <div>
+                <h2 class="card-title mdc-typography mdc-typography--headline6">
+                    Konfiguration
+                </h2>
+
+                <!-- Chart Type -->
+                <div class="config-row">
+                    <h4 class="card-title mdc-typography mdc-typography--headline7">
+                        Diagram Typ
+                    </h4>
+
+                    <div style="display: flex;">
+                        <!-- Outlined Select -->
+                        <div class="mdc-select mdc-select--outlined" style="width: 200px;" id="chart-type-select">
+                            <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
+                                <span class="mdc-select__ripple"></span>
+                                <span class="mdc-select__selected-text"></span>
+                                <span class="mdc-select__dropdown-icon" style="background: none;">
+                                    <i class="feather-icon" data-feather="chevron-down"></i>
+                                </span>
+
+                                <span class="mdc-notched-outline">
+                                    <span class="mdc-notched-outline__leading"></span>
+                                    <span class="mdc-notched-outline__notch">
+                                        <span id="outlined-select-label" class="mdc-floating-label">
+                                            Typ
+                                        </span>
+                                    </span>
+                                    <span class="mdc-notched-outline__trailing"></span>
+                                </span>
+                            </div>
+                            <div class="mdc-select__menu mdc-menu mdc-menu-surface" role="listbox">
+                                <ul class="mdc-list">
+                                    <li class="mdc-list-item mdc-list-item--selected" data-value=""
+                                        aria-selected="true"></li>
+                                    <li class="mdc-list-item" data-value="line">
+                                        <span class="mdc-list-item__text">
+                                            Linien Diagram
+                                        </span>
+                                    </li>
+                                    <li class="mdc-list-item" data-value="bar">
+                                        <span class="mdc-list-item__text">
+                                            Balken Diagram
+                                        </span>
+                                    </li>
+                                    <li class="mdc-list-item" data-value="pie">
+                                        <span class="mdc-list-item__text">
+                                            Kuchen Diagram
+                                        </span>
+                                    </li>
+                                    <li class="mdc-list-item" data-value="doughnut">
+                                        <span class="mdc-list-item__text">
+                                            Doughnut Diagram
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Labels -->
+                <div class="config-row">
+                    <h4 class="card-title mdc-typography mdc-typography--headline7">
+                        Labels (X-Achse)
+                    </h4>
+
+                    <div style="display: flex;">
+                        <!-- Outlined Select -->
+                        <div class="mdc-select mdc-select--outlined" style="width: 200px;" id="labels-type-select">
+                            <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
+                                <span class="mdc-select__ripple"></span>
+                                <span class="mdc-select__selected-text"></span>
+                                <span class="mdc-select__dropdown-icon" style="background: none;">
+                                    <i class="feather-icon" data-feather="chevron-down"></i>
+                                </span>
+
+                                <span class="mdc-notched-outline">
+                                    <span class="mdc-notched-outline__leading"></span>
+                                    <span class="mdc-notched-outline__notch">
+                                        <span id="outlined-select-label" class="mdc-floating-label">
+                                            Typ
+                                        </span>
+                                    </span>
+                                    <span class="mdc-notched-outline__trailing"></span>
+                                </span>
+                            </div>
+                            <div class="mdc-select__menu mdc-menu mdc-menu-surface" role="listbox">
+                                <ul class="mdc-list">
+                                    <li class="mdc-list-item mdc-list-item--selected" data-value=""
+                                        aria-selected="true"></li>
+                                    <li class="mdc-list-item" data-value="time">
+                                        <span class="mdc-list-item__text">
+                                            Zeit
+                                        </span>
+                                    </li>
+                                    <li class="mdc-list-item" data-value="classes">
+                                        <span class="mdc-list-item__text">
+                                            Klassen
+                                        </span>
+                                    </li>
+                                    <li class="mdc-list-item" data-value="subjects">
+                                        <span class="mdc-list-item__text">
+                                            Fächer
+                                        </span>
+                                    </li>
+                                    <li class="mdc-list-item" data-value="types">
+                                        <span class="mdc-list-item__text">
+                                            Typen
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; " id="time-selector">
+                            <!-- Outlined Text Field -->
+                            <label class="mdc-text-field mdc-text-field--outlined" id="time-selector-start">
+                                <input type="text" class="mdc-text-field__input" aria-labelledby="my-label-id">
+                                <span class="mdc-notched-outline">
+                                    <span class="mdc-notched-outline__leading"></span>
+                                    <span class="mdc-notched-outline__notch">
+                                        <span class="mdc-floating-label" id="my-label-id">Von</span>
+                                    </span>
+                                    <span class="mdc-notched-outline__trailing"></span>
+                                </span>
+                            </label>
+
+                            <!-- Outlined Text Field -->
+                            <label class="mdc-text-field mdc-text-field--outlined" id="time-selector-end">
+                                <input type="text" class="mdc-text-field__input" aria-labelledby="my-label-id" invalid>
+                                <span class="mdc-notched-outline">
+                                    <span class="mdc-notched-outline__leading"></span>
+                                    <span class="mdc-notched-outline__notch">
+                                        <span class="mdc-floating-label" id="my-label-id">Bis</span>
+                                    </span>
+                                    <span class="mdc-notched-outline__trailing"></span>
+                                </span>
+                            </label>
+
+                            <!-- Outlined Select -->
+                            <div class="mdc-select mdc-select--outlined" style="width: 200px;" id="chart-type-select">
+                                <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
+                                    <span class="mdc-select__ripple"></span>
+                                    <span class="mdc-select__selected-text"></span>
+                                    <span class="mdc-select__dropdown-icon" style="background: none;">
+                                        <i class="feather-icon" data-feather="chevron-down"></i>
+                                    </span>
+
+                                    <span class="mdc-notched-outline">
+                                        <span class="mdc-notched-outline__leading"></span>
+                                        <span class="mdc-notched-outline__notch">
+                                            <span id="outlined-select-label" class="mdc-floating-label">
+                                                Einheit
+                                            </span>
+                                        </span>
+                                        <span class="mdc-notched-outline__trailing"></span>
+                                    </span>
+                                </div>
+                                <div class="mdc-select__menu mdc-menu mdc-menu-surface" role="listbox">
+                                    <ul class="mdc-list">
+                                        <li class="mdc-list-item mdc-list-item--selected" data-value=""
+                                            aria-selected="true"></li>
+                                        <li class="mdc-list-item" data-value="days">
+                                            <span class="mdc-list-item__text">
+                                                Tage
+                                            </span>
+                                        </li>
+                                        <li class="mdc-list-item" data-value="weeks">
+                                            <span class="mdc-list-item__text">
+                                                Wochen
+                                            </span>
+                                        </li>
+                                        <li class="mdc-list-item" data-value="months">
+                                            <span class="mdc-list-item__text">
+                                                Monate
+                                            </span>
+                                        </li>
+                                        <li class="mdc-list-item" data-value="years">
+                                            <span class="mdc-list-item__text">
+                                                Jahre
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; display: none;" id="simple-selector">
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Datasets -->
+                <div class="config-row">
+                    <h4 class="card-title mdc-typography mdc-typography--headline7">
+                        Datensätze (Y-Achse)
+                    </h4>
+
+                    <div id="data-list">
+
+                        <div style="display: none;" id="base-data-item">
+                            <!-- Checkbox -->
+                            <div class="mdc-checkbox" style="align-self: center;">
+                                <input type="checkbox" class="mdc-checkbox__native-control" />
+                                <div class="mdc-checkbox__background">
+                                    <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+                                        <path class="mdc-checkbox__checkmark-path" fill="none"
+                                            d="M1.73,12.91 8.1,19.28 22.79,4.59" />
+                                    </svg>
+                                    <div class="mdc-checkbox__mixedmark"></div>
+                                </div>
+                                <div class="mdc-checkbox__ripple"></div>
+                            </div>
+
+                            <!-- Outlined Text Field -->
+                            <label class="mdc-text-field mdc-text-field--outlined" style="margin-top: 4px;"
+                                id="data-name-field">
+                                <input type="text" class="mdc-text-field__input" aria-labelledby="my-label-id" invalid>
+                                <span class="mdc-notched-outline">
+                                    <span class="mdc-notched-outline__leading"></span>
+                                    <span class="mdc-notched-outline__notch">
+                                        <span class="mdc-floating-label" id="my-label-id">Name</span>
+                                    </span>
+                                    <span class="mdc-notched-outline__trailing"></span>
+                                </span>
+                            </label>
+
+                            <!-- Outlined Select -->
+                            <div class="mdc-select mdc-select--outlined" style="width: 100px; margin-top: 4px;"
+                                id="data-color-select">
+                                <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
+                                    <span class="mdc-select__ripple"></span>
+                                    <span class="mdc-select__selected-text"></span>
+                                    <span class="mdc-select__dropdown-icon" style="background: none;">
+                                        <i class="feather-icon" data-feather="chevron-down"></i>
+                                    </span>
+
+                                    <span class="mdc-notched-outline">
+                                        <span class="mdc-notched-outline__leading"></span>
+                                        <span class="mdc-notched-outline__notch">
+                                            <span id="outlined-select-label" class="mdc-floating-label">
+                                                Farbe
+                                            </span>
+                                        </span>
+                                        <span class="mdc-notched-outline__trailing"></span>
+                                    </span>
+                                </div>
+                                <div class="mdc-select__menu mdc-menu mdc-menu-surface" role="listbox">
+                                    <ul class="mdc-list">
+                                        <li class="mdc-list-item mdc-list-item--selected" data-value=""
+                                            aria-selected="true"></li>
+                                        <li class="mdc-list-item" data-value="red">
+                                            <span class="mdc-list-item__text">
+                                                Rot
+                                            </span>
+                                        </li>
+                                        <li class="mdc-list-item" data-value="orange">
+                                            <span class="mdc-list-item__text">
+                                                Orange
+                                            </span>
+                                        </li>
+                                        <li class="mdc-list-item" data-value="yellow">
+                                            <span class="mdc-list-item__text">
+                                                Gelb
+                                            </span>
+                                        </li>
+                                        <li class="mdc-list-item" data-value="green">
+                                            <span class="mdc-list-item__text">
+                                                Grün
+                                            </span>
+                                        </li>
+                                        <li class="mdc-list-item" data-value="blue">
+                                            <span class="mdc-list-item__text">
+                                                Blau
+                                            </span>
+                                        </li>
+                                        <li class="mdc-list-item" data-value="purple">
+                                            <span class="mdc-list-item__text">
+                                                Lila
+                                            </span>
+                                        </li>
+                                        <li class="mdc-list-item" data-value="grey">
+                                            <span class="mdc-list-item__text">
+                                                Grau
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Outlined Select -->
+                            <div class="mdc-select mdc-select--outlined" style="width: 180px; margin-top: 4px;"
+                                id="data-subject-select">
+                                <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
+                                    <span class="mdc-select__ripple"></span>
+                                    <span class="mdc-select__selected-text"></span>
+                                    <span class="mdc-select__dropdown-icon" style="background: none;">
+                                        <i class="feather-icon" data-feather="chevron-down"></i>
+                                    </span>
+
+                                    <span class="mdc-notched-outline">
+                                        <span class="mdc-notched-outline__leading"></span>
+                                        <span class="mdc-notched-outline__notch">
+                                            <span id="outlined-select-label" class="mdc-floating-label">
+                                                Fach
+                                            </span>
+                                        </span>
+                                        <span class="mdc-notched-outline__trailing"></span>
+                                    </span>
+                                </div>
+                                <div class="mdc-select__menu mdc-menu mdc-menu-surface" role="listbox">
+                                    <ul class="mdc-list">
+                                        <li class="mdc-list-item mdc-list-item--selected" data-value=""
+                                            aria-selected="true"></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Outlined Select -->
+                            <div class="mdc-select mdc-select--outlined" style="width: 180px; margin-top: 4px;"
+                                id="data-class-select">
+                                <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
+                                    <span class="mdc-select__ripple"></span>
+                                    <span class="mdc-select__selected-text"></span>
+                                    <span class="mdc-select__dropdown-icon" style="background: none;">
+                                        <i class="feather-icon" data-feather="chevron-down"></i>
+                                    </span>
+
+                                    <span class="mdc-notched-outline">
+                                        <span class="mdc-notched-outline__leading"></span>
+                                        <span class="mdc-notched-outline__notch">
+                                            <span id="outlined-select-label" class="mdc-floating-label">
+                                                Klasse
+                                            </span>
+                                        </span>
+                                        <span class="mdc-notched-outline__trailing"></span>
+                                    </span>
+                                </div>
+                                <div class="mdc-select__menu mdc-menu mdc-menu-surface" role="listbox">
+                                    <ul class="mdc-list">
+                                        <li class="mdc-list-item mdc-list-item--selected" data-value=""
+                                            aria-selected="true"></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Outlined Select -->
+                            <div class="mdc-select mdc-select--outlined" style="width: 180px; margin-top: 4px;"
+                                id="data-type-select">
+                                <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
+                                    <span class="mdc-select__ripple"></span>
+                                    <span class="mdc-select__selected-text"></span>
+                                    <span class="mdc-select__dropdown-icon" style="background: none;">
+                                        <i class="feather-icon" data-feather="chevron-down"></i>
+                                    </span>
+
+                                    <span class="mdc-notched-outline">
+                                        <span class="mdc-notched-outline__leading"></span>
+                                        <span class="mdc-notched-outline__notch">
+                                            <span id="outlined-select-label" class="mdc-floating-label">
+                                                Typ
+                                            </span>
+                                        </span>
+                                        <span class="mdc-notched-outline__trailing"></span>
+                                    </span>
+                                </div>
+                                <div class="mdc-select__menu mdc-menu mdc-menu-surface" role="listbox">
+                                    <ul class="mdc-list">
+                                        <li class="mdc-list-item mdc-list-item--selected" data-value=""
+                                            aria-selected="true"></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Outlined Select -->
+                            <div class="mdc-select mdc-select--outlined" style="width: 200px; margin-top: 4px;"
+                                id="data-time-select">
+                                <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
+                                    <span class="mdc-select__ripple"></span>
+                                    <span class="mdc-select__selected-text"></span>
+                                    <span class="mdc-select__dropdown-icon" style="background: none;">
+                                        <i class="feather-icon" data-feather="chevron-down"></i>
+                                    </span>
+
+                                    <span class="mdc-notched-outline">
+                                        <span class="mdc-notched-outline__leading"></span>
+                                        <span class="mdc-notched-outline__notch">
+                                            <span id="outlined-select-label" class="mdc-floating-label">
+                                                Zeitraum
+                                            </span>
+                                        </span>
+                                        <span class="mdc-notched-outline__trailing"></span>
+                                    </span>
+                                </div>
+                                <div class="mdc-select__menu mdc-menu mdc-menu-surface" role="listbox">
+                                    <ul class="mdc-list">
+                                        <li class="mdc-list-item mdc-list-item--selected" data-value=""
+                                            aria-selected="true"></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Icon Button -->
+                            <button class="mdc-icon-button" style="align-self: center;" aria-label="Remove"
+                                aria-hidden="true" aria-pressed="false">
+                                <i class="feather-icon mdc-icon-button__icon" data-feather="x"></i>
+                            </button>
+                        </div>
+
+                        <div style="display: flex;" id="data-add-item">
+                            <button class="mdc-fab mdc-fab--extended" style="align-self: center; margin: 16px auto;" aria-label="Favorite">
+                                <div class="mdc-fab__ripple"></div>
+                                <span class="mdc-fab__icon feather-icon" data-feather="plus"></span>
+                                <span class="mdc-fab__label">Hinzufügen</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

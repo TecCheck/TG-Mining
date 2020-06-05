@@ -1,0 +1,122 @@
+/* 
+########################################################################################
+            Fixes for some default material values and aplies Theme colors 
+                    For your own classes into theme.css below ;) 
+########################################################################################
+*/
+
+body {
+  margin: 0px;
+  color: var(--mdc-theme-text-primary-on-background);
+}
+
+a {
+  color: var(--mdc-theme-secondary);
+}
+
+/* Fixes wrong colors in drawers for dark mode */
+.mdc-drawer {
+  background-color: var(--mdc-theme-background);
+}
+
+.mdc-drawer .mdc-drawer__title {
+  color: var(--mdc-theme-text-primary-on-background);
+}
+
+.mdc-drawer .mdc-drawer__subtitle {
+  color: var(--mdc-theme-text-secondary-on-background);
+}
+
+.mdc-drawer .mdc-list-item {
+  color: inherit;
+}
+
+.mdc-drawer .mdc-list-item .mdc-list-item__graphic {
+  color: inherit;
+}
+
+.mdc-drawer .mdc-list-item--selected {
+  color: var(--mdc-theme-primary);
+}
+
+/* haven't found a solution for dark mode */
+.mdc-linear-progress--reversed .mdc-linear-progress__buffering-dots {
+  color: var(--mdc-theme-surface);
+}
+
+/* Fixes background color for dark mode */
+.mdc-linear-progress__buffer {
+  background-color: var(--mdc-theme-surface);
+}
+
+/* Fixes border color for dark mode */
+.mdc-checkbox__native-control:enabled:not(:checked):not(:indeterminate)
+  ~ .mdc-checkbox__background {
+  border-color: var(--mdc-theme-text-secondary-on-background);
+}
+
+/* Fixes switch background color for dark mode */
+.mdc-switch:not(.mdc-switch--checked) .mdc-switch__track {
+  background-color: var(--mdc-theme-text-secondary-on-background);
+  border-color: transparent;
+}
+
+.mdc-radio
+  .mdc-radio__native-control:enabled:not(:checked)
+  + .mdc-radio__background
+  .mdc-radio__outer-circle {
+  border-color: var(--mdc-theme-text-secondary-on-background);
+}
+
+.mdc-text-field--focused:not(.mdc-text-field--disabled) .mdc-floating-label {
+  color: var(--mdc-theme-primary);
+}
+
+.mdc-select:not(.mdc-select--disabled).mdc-select--focused .mdc-floating-label {
+  color: var(--mdc-theme-primary);
+}
+
+.mdc-select--activated .mdc-select__dropdown-icon {
+  color: var(--mdc-theme-primary);
+}
+
+.mdc-select--activated .mdc-select__dropdown-icon {
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.mdc-select__anchor {
+  width: 100%;
+}
+
+/*
+.mdc-select--outlined:not(.mdc-select--disabled) .mdc-notched-outline__leading,
+.mdc-select--outlined:not(.mdc-select--disabled) .mdc-notched-outline__notch,
+.mdc-select--outlined:not(.mdc-select--disabled)
+  .mdc-notched-outline__trailing {
+  border-color: var(
+    --mdc-theme-text-secondary-on-background,
+    rgba(0, 0, 0, 0.54)
+  );
+}
+
+.mdc-notched-outline__leading,
+.mdc-notched-outline__notch,
+.mdc-notched-outline__trailing {
+  border-color: var(
+    --mdc-theme-text-secondary-on-background,
+    rgba(0, 0, 0, 0.54)
+  );
+}
+*/
+
+/*
+  .mdc-typography--headline6 {
+    font-size: 1.3125rem;
+    line-height: 2rem;
+    font-weight: 400;
+    letter-spacing: normal;
+    text-decoration: inherit;
+    text-transform: inherit;
+  }
+  */

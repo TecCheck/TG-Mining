@@ -8,6 +8,14 @@ body {
   margin: 16px;
 }
 
+.mdc-select {
+  margin: 0px 8px;
+}
+
+.mdc-text-field {
+  margin: 0px 8px;
+}
+
 .chart-container {
   min-height: 250px;
 }
@@ -16,10 +24,14 @@ body {
   max-width: 700px;
 }
 
-@media only screen and (max-width: 600px){
+@media only screen and (max-width: 600px) {
   .pie-chart {
     max-height: 600px;
   }
+}
+
+.config-row {
+  margin: 8px 0px;
 }
 
 .on-primary {
@@ -38,10 +50,6 @@ body {
 
 .card-secondary {
   color: var(--mdc-theme-text-secondary-on-background, rgba(0, 0, 0, 0.54));
-}
-
-.feather-icon {
-  stroke: var(--mdc-theme-on-primary, rgba(0, 0, 0, 0.54));
 }
 
 .feather-icon-button__icon {

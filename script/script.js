@@ -1,7 +1,18 @@
 // powered by Chart.js (https://www.chartjs.org/)
 const MDCIconButtonToggle = mdc.iconButton.MDCIconButtonToggle;
 const MDCMenu = mdc.menu.MDCMenu;
+const MDCTextField = mdc.textField.MDCTextField;
+const MDCSelect = mdc.select.MDCSelect;
+const MDCRipple = mdc.ripple.MDCRipple;
+const MDCCheckbox = mdc.checkbox.MDCCheckbox;
 
+/*
+const MDCList = mdc.list.MDCList;
+const MDCDrawer = mdc.drawer.MDCDrawer;
+const MDCTopAppBar = mdc.topAppBar.MDCTopAppBar;
+const MDCSwitch = mdc.switchControl.MDCSwitch;
+const MDCLinearProgress = mdc.linearProgress.MDCLinearProgress;
+*/
 
 function setup() {
     var darkNightButton = document.getElementById("dark-night-switch")
@@ -18,6 +29,16 @@ function setup() {
     moment.locale("de");
 
     Chart.defaults.global.defaultFontFamily = "\'Rubik\', \'Roboto\'," + Chart.defaults.global.defaultFontFamily;
+    setupButtonRipple();
+}
+
+function setupButtonRipple() {
+    // Get all available buttons
+    var buttons = document.getElementsByClassName('mdc-button');
+
+    // Apply a ripple effect to all of them
+    for (var i = 0; i < buttons.length; i++)
+        var ripple = new MDCRipple(buttons[i]);
 }
 
 // https://www.w3schools.com/howto/howto_html_include.asp
@@ -97,6 +118,7 @@ function setupCharts(event) {
     setupChart4();
     setupChart3();
     setupChart5();
+    setupCustomChart();
     feather.replace()
 }
 
@@ -116,7 +138,7 @@ function showTime() {
 document.addEventListener("DOMContentLoaded", function () {
     includeHTML();
     setup();
-    feather.replace()
+    feather.replace();
     setTimeout(function () {
         tryReadUrl();
     }, 1000);

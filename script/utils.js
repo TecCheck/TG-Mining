@@ -119,9 +119,10 @@ function getParentNode(element, parentNodeName, maxIterations = 5) {
 function createLayout(layoutID, title) {
     var baseChart = document.getElementById("base-chart-card");
     var graphLayout = baseChart.cloneNode(true);
+    var customChart = document.getElementById("customChartInclude");;
     graphLayout.setAttribute("id", `chart${layoutID}-card`);
     graphLayout.style.removeProperty("display");
     graphLayout.getElementsByClassName("card-title")[0].innerText = title;
     graphLayout.getElementsByTagName("canvas")[0].setAttribute("id", `chart${layoutID}`);
-    document.getElementsByClassName("mdc-top-app-bar--fixed-adjust")[0].appendChild(graphLayout);
+    document.getElementsByClassName("mdc-top-app-bar--fixed-adjust")[0].insertBefore(graphLayout, customChart);
 }

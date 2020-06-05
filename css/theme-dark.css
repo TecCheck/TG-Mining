@@ -1,9 +1,12 @@
 :root {
+  --mdc-theme-primary: #499f92;
+  --mdc-theme-secondary: #d66e7e;
+
   --mdc-theme-background: #121212;
   --mdc-theme-surface: #222;
   --mdc-theme-error: #b00020;
   --mdc-theme-on-primary: #000;
-  --mdc-theme-on-secondary: #fff;
+  --mdc-theme-on-secondary: #000;
   --mdc-theme-on-surface: #fff;
   --mdc-theme-on-error: #fff;
   --mdc-theme-text-primary-on-background: rgba(255, 255, 255, 0.87);
